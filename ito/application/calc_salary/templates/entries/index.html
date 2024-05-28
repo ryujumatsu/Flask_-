@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="/output" method=post>
+    <div class="form-group">
+        <label for="salary">給与を入力してください</label>
+        <input type="number" class="form-control" id="InputSalary" name=salary value="{{salary}}">
+    </div>
+    <div class="d-md-flex justify-content-md-end">
+        <button type="submit" class="btn btn-primary">計算</button>
+    </div>
+</form>
+{% endblock %}

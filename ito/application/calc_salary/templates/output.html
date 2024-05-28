@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">月</th>
+        <th scope="col">給与</th>
+        <th scope="col">支給額</th>
+        <th scope="col">税金</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>{{'{:,.0f}'.format(salary)}}円</td>
+        <td>{{'{:,.0f}'.format(price)}}円</td>
+        <td>{{'{:,.0f}'.format(tax)}}円</td>
+      </tr>
+      <!-- <tr>
+        <td></td>
+        <td>{{'{:,.0f}'.format(salary)}}円</td>
+        <td>{{'{:,.0f}'.format(price)}}円</td>
+        <td>{{'{:,.0f}'.format(tax)}}円</td>
+      </tr> -->
+    </tbody>
+  </table>
+
+{% endblock %}
+
+{% block bottom %}
+
+<div class="d-md-flex justify-content-md-end">
+    <a class="btn btn-primary mt-2" href="{{url_for('show_entries')}}" style="text-align: right;">戻る</a>
+</div>
+{% endblock %}
