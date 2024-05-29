@@ -4,13 +4,13 @@ from decimal import Decimal,ROUND_HALF_UP
 
 @app.route('/')
 def show_entries():
-    return render_template('entries/index.html')
+    return render_template('input.html')
 
 
 @app.route('/input',methods=['GET','POST'])
 def input():
     init_val = session.get("input_data",None)
-    return render_template('entries/index.html',salary=init_val)
+    return render_template('input.html',salary=init_val)
 
 @app.route('/output',methods=['GET','POST'])
 def output():
