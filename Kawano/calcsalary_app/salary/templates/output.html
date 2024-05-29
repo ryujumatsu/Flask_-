@@ -1,10 +1,29 @@
 {% extends"layout.html" %}
 {% block body %}
     <br>
-    <div class="card-group" style="margin-left: auto;margin-right: auto;max-width: 640px; width: 90%; height: 640px;">
-        <p class="card" style="background-color: #fffefd;">給与:{{ salary }}</p>
-        <p class="card" style="background-color: #fffefd;">税額:{{ tax }}</p>
-        <p class="card" style="background-color: #fffefd;">支給:{{ supply }}</p>
+    <div class="card">
+        <h1 style="text-align: center;" >５月分</h1>
+    </div>
+    <br>
+    <div class="card-group mb-3" style="display: flex; gap: 24px; text-align: center;">
+        <div class="card" style="width: 18rem; background-color: #fffefd;">
+            <div class="card-body">
+              <h5 class="card-title">給与</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary" style="margin-top: 20px;">{{ salary }}円</h6>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; background-color: #fffefd;">
+            <div class="card-body">
+              <h5 class="card-title">税額</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary" style="margin-top: 20px;">{{ tax }}円</h6>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; background-color: #fffefd;">
+            <div class="card-body">
+              <h5 class="card-title">支給額</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary" style="margin-top: 20px;">{{ supply }}円</h6>
+            </div>
+        </div>
     </div>
     <form action="{{ url_for('input')}}">
     <button type="submit" class="btn" style="background-color: #072b61; color: #fffefd;">戻る</button>
