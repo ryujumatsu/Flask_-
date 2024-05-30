@@ -1,4 +1,23 @@
 {% extends "layout.html" %}
 {% block body %}
-投稿がありません
+
+<ul class="list-group" list-group-flush>
+{% for entry in entries %}
+    <div class="card">
+        <div class="card-body" style="display: flex;">
+            <div class="">
+                <img src="../../static/img/happy.gif" alt=""style="width: 100px; height: 100px; border-radius:50%">
+            </div>
+            
+            <div class="card-body">
+                <h5 class="card-title">{{entry.title}}</h5>
+                <a href="{{ url_for('show_entry',id=entry.id) }}" class="card-link">続きを読む</a>
+            </div>
+            
+        </div>
+    </div>
+{% else %}
+    投稿がありません
+{% endfor %}
+</ul>
 {% endblock %}
