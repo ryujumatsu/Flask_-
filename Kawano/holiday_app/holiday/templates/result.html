@@ -1,0 +1,21 @@
+{% extends"layout.html" %}
+{% block body %}
+<br><br>
+    <div class="card-group mb-3" style="display: flex; gap: 24px; text-align: center;">
+      <div class="card" style="width: 18rem; background-color: #fffefd;">
+        <div class="card-body">
+          <h5 class="card-title">処理結果</h5>
+{% if  judge == "insert" %}
+          <h6 class="card-subtitle mb-2 text-body-secondary" style="margin-top: 20px;">{{ holi_date }}({{ holi_text}})が登録されました</h6>        
+{% elif judge == "update" %}
+          <h6 class="card-subtitle mb-2 text-body-secondary" style="margin-top: 20px;">{{ holi_date }}は「{{ holi_text}}」に更新されました</h6>
+{% elif judge == "delete" %}
+          <h6 class="card-subtitle mb-2 text-body-secondary" style="margin-top: 20px;">{{ holi_date }}({{ holi_text}})は、削除されました</h6>
+{% endif%}
+        </div>
+      </div>
+    </div> 
+    <form action="{{ url_for('input')}}">
+      <button type="submit" class="btn" style="background-color: #072b61; color: #fffefd;">戻る</button>
+    </form>
+{% endblock %}
