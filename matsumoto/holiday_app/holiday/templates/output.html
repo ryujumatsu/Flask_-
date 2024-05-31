@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+
+処理結果
+
+<p>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+</p>
+
+<button type="button" onclick="location.href='/'" class="btn btn-primary" style="margin-top:20px;">戻る</button>
+
+{% endblock %}

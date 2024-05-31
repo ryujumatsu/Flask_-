@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-info" role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
+    
+<form action=? method="POST" style="margin-top:40px;">
+    <div class="form-group">
+        <label for="InputDate">祝日 日付</label>
+        <input type="date" class="form-control" id="InputDate" name=holi_date>
+    </div>
+
+    <div class="form-group">
+        <label for="InputText">祝日 テキスト</label>
+        <input type="text" class="form-control" id="InputText" name=holi_text>
+    </div>
+
+    <div class="btn-group">
+        <button type="submit" formaction="/create" class="btn btn-primary">新規登録・更新</button>
+        <button type="submit" formaction="/delete" class="btn btn-danger" style="margin-left:20px">削除</button>
+    </div>
+</form>
+
+<button type="submit" onclick="location.href='/list'" class="btn btn-secondary" style="margin-top:20px;">一覧出力</button>
+
+{% endblock %}
