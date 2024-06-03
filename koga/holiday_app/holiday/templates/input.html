@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="{{ url_for('result') }}" method=post>
+    <div class="form-group">
+        <p>
+            <label for = "InputTitle" style="color: #2f454f;">
+                日付(年/月/日)
+            </label>
+            <input type="date" class="form-control" id="InputTitle" name="input_date" value="{{input_date}}">
+        </p>
+        <p>
+            <label for = "InputTitle" style="color: #2f454f;">
+                名前(20文字以内)
+            </label>
+            <input type="text" class="form-control" id="InputTitle" name="input_text" value="{{input_text}}">
+        </p>
+    </div>
+        <div class="d-grid gap-200 d-md-flex justify-content-md-end" name="button" value="insert_update">
+            <button class="btn btn-primary " type="submit">
+                新規登録/更新
+            </button>
+        </div>
+        <div class="d-grid gap-200 d-md-flex justify-content-md-end" name="button" value="delete">
+            <button class="btn btn-primary " type="submit">
+                削除
+            </button>    
+        </div>
+</form>
+
+<a href="{{ url_for('list') }}">一覧表示</a>
+{% endblock %}

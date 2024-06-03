@@ -1,20 +1,17 @@
 {% extends "layout.html" %}
 {% block body %}
 <ul class="list-group list-group-flush">
-    {% for entry in entriesHTML %}
+    {% for holiday in datelistHTML %}
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
-                    {{ entry.title }}
+                    {{ holiday.holi_date }} : {{ holiday.holi_text }}
                 </h5>
-                <a href="{{ url_for('show_entry',id=entry.id)}}" class="card-link">
-                    続きを読む
-                </a>
             </div>
         </div>
     {% else %}
-        投稿がありません。
+        祝日が登録されていません。
     {% endfor %}
 </ul>
-
+<a href="{{ url_for('input') }}">戻る</a>
 {% endblock %}

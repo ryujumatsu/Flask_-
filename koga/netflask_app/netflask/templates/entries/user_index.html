@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% for movie in entriesHTML %}
+        <div class="card">
+            <a class="display-inline-block" 
+            style="display: inline-block;
+            width: 150px;
+            padding: 10px 0;
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            background-color: #000;"
+            href="{{ url_for('show_entry',id=entry.id)}}" > {{movie_title}} </a>
+        </div>
+    {% else %}
+        視聴可能な作品がありません。
+    {% endfor %}
+
+{% endblock %}
