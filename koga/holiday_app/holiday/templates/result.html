@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block body %}
+<h5>{{ holiday.holi_date }} : {{ holiday.holi_text }}を登録しました。</h5>
+<a href="{{ url_for('list') }}">一覧表示</a>
+<a href="{{ url_for('input') }}">戻る</a>
+{% endblock %}

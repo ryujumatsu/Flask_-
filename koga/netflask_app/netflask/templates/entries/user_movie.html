@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>
+    {{entry.title}}
+</h2>
+<br>
+
+{{entry.text}}
+
+<br>
+<br>
+
+公開日{{entry.created_at}}
+
+<br>
+<br>
+
+{% if not session.user_logged_in and not session.editor_logged_in %}
+<form action="{{ url_for('delete_entry',id=entry.id) }}" method="POST">
+    <button type="submit" class="btn btn-secondary" style="margin-left: 5px;">マイリストに追加</button>
+</form>
+
+<form action="{{ url_for('delete_entry',id=entry.id) }}" method="POST">
+    <button type="submit" class="btn btn-light" style="margin-left: 5px;">マイリストから削除</button>
+</form>
+
+
+{% endblock %}
