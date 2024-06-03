@@ -1,11 +1,44 @@
-<!DOCTYPE html>
-<html lang="jp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    input
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block body %}  
+
+<div class="content">    
+      <div class="">
+        <div class="">
+            <form action="{{url_for('add_list')}}" method=post>
+                <p>祝日 日付</p>
+                <div class="relative max-w-sm">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                  </div>
+                  <input datepicker type="date" name="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                </div>
+                
+                <p>祝日テキスト</p>
+                <div class="relative max-w-sm">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                  </div>
+                  <input datepicker type="text" name="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">
+                </div>
+                <button type="submit" name="button" value="insert_update" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    新規登録・更新
+                </button>
+                <button type="submit" name="button" value="delete"  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                  削除
+                </button>
+              </form>
+<!--               
+              <form action="{{url_for('add_list')}}" method=post>
+                
+              </form> -->
+ 
+          </div>
+          <form action="{{url_for('show_list')}}" method=get>
+            <button type="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            一覧出力
+            </button>
+          </form>
+      </div>
+    
+    </div>
+</div>
+{% endblock %}

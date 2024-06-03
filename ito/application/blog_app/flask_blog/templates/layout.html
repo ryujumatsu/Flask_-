@@ -4,55 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask Blog</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" type="text/css">
     <link rel=stylesheet href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <style>
-    body {
-        background-color: #e0ffd7;
-    }
+    /* body {
+        background-color: #f5f5f5;
+    } */
 </style>
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #2e4521">
-        <a class="navbar-brand" style="color: #e8e35b" href="{{url_for('show_entries')}}"><b>Flask Blog</b></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="nav navbar-nav navbar-right">
-                {% if  not session.logged_in %}
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #e8e35b" href="{{url_for('login')}}">ログイン</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #e8e35b" href="{{url_for('new_entry')}}">新規投稿</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #e8e35b" href="{{url_for('logout')}}">ログアウト</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        {% for message in get_flashed_messages() %}
-        <div>
-            <div class="alert alert-info" role="alert">
-                {{message}}
-            </div>
-        </div>
-        {% endfor %}
-        <div class="blog-body">
-            {% block body %}{% endblock %}
-        </div>
+  <div class="navbar bg-base-100">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl" href="/">Cat Blog</a>
     </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        {% if  not session.logged_in %}
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        {% else %}
+        <li><a href="{{url_for('new_entry')}}">New</a></li>
 
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+      {% for message in get_flashed_messages() %}
+      <div>
+          <!-- <div class="alert alert-info" role="alert">
+              {{message}}
+          </div> -->
+          <div role="alert" class="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>{{message}}</span>
+          </div>
+      </div>
+      {% endfor %}
+      <div class="blog-body flex flex-col w-full">
+          {% block body %}{% endblock %}
+      </div>
 </body>
 </html>

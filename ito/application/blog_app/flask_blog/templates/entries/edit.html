@@ -1,17 +1,30 @@
 {% extends "layout.html" %}
 {% block body %}
-<form action="{{url_for('update_entry',id=entry.id)}}" method=post class=add-entry>
-    <div class="form-group">
-        <label for="InputTitle">タイトル</label>
-        <input type="text" class="form-control" id="InputTitle" name=title value={{entry.title}}>
-    </div>
-
-    <div class="form-group">
-        <label for="InputText">本文</label>
-        <textarea class="form-control" name=text id="InputText" rows="3">{{entry.text | safe}}</textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">更新</button>
-</form>
-
+<div class="blog-body mx-auto">
+    <form action="{{url_for('update_entry',id=entry.id)}}" method=post class=add-entry>
+        <div class="card">
+            <div class="form-group">
+                <input type="text" id="InputTitle" name=title placeholder="Title" value={{entry.title}} class="input input-bordered w-full max-w-xs" />
+            </div>
+            <div class="form-group">
+                <textarea placeholder="text here"  name=text id="InputText" rows="3" class="textarea textarea-bordered textarea-lg w-full max-w-xs" >{{entry.text | safe}}</textarea>
+            </div>
+            <div class="form-group">
+                <select name="status" class="select w-full max-w-xs">
+                    <option disabled selected>Select your status</option>
+                    <option>Happy</option>
+                    <option>Sad</option>
+                    <option>Scream</option>
+                    <option>Surprise</option>
+                    <option>Huh</option>
+                    <option>Great</option>
+                  </select>
+            </div>
+        
+            <div class="form-group flex justify-end my-5">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

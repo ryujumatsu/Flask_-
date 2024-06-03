@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}  
+{% for entry in entries %}
+<p>{{entry.holi_date}}:{{entry.holi_text}}</p>
+{% else %}
+    なし
+{% endfor %}
+{% endblock %}

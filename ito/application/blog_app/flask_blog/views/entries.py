@@ -6,9 +6,15 @@ from flask_blog.views.views import login_required
 @app.route('/')
 @login_required
 def show_entries():
-    # if not session.get('logged_in'):
-    #     return redirect(url_for('login'))
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    
     entries = Entry.query.order_by(Entry.id.desc()).all()
+
+    # statusをimgのパスとして置き換える
+    for i in range(len(entries)):
+        entries[i].status = f"../../static/img/{entries[i].status}.gif" 
+
     return render_template('entries/index.html',entries=entries)
 
 @app.route('/entries/new',methods=['GET'])
@@ -19,9 +25,11 @@ def new_entry():
 @app.route('/entries',methods=['POST'])
 @login_required
 def add_entry():
+    print(request.form['status'])
     entry = Entry(
         title = request.form['title'],
-        text = request.form['text']
+        text = request.form['text'],
+        status = request.form['status']
     )
     db.session.add(entry)
     db.session.commit()
@@ -47,6 +55,7 @@ def update_entry(id):
     entry = Entry.query.get(id)
     entry.title = request.form['title']
     entry.text = request.form['text']
+    entry.status = request.form['status']
     db.session.merge(entry)
     db.session.commit()
     flash('記事が更新されました')
