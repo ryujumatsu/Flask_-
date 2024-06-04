@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="{{ url_for('output') }}" method=post>
+    <div class="form-group">
+        <label for = "InputTutle" style="color: #2f454f;">
+            給与
+        </label>
+        <input type="number" class="form-control" id="InputTutle" name="salary" value="{{input_data}}">
+    </div>
+        <div class="d-grid gap-200 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary " type="submit">
+                計算する
+            </button>
+        </div>
+    </button>
+</form>
+{% endblock %}
