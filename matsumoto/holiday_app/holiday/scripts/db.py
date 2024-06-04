@@ -1,9 +1,6 @@
+from holiday import db
+from holiday.models.holiday import Holiday
 from flask_script import Command
-
-from flask_blog import db
-from flask_blog.models.posts import Post
-from flask_blog.models.users import User
-
 
 class InitDB(Command):
     "create databse"

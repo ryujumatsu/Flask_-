@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<ul class="list-group list-group-flush">
+
+{% for post in posts %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.Post.title }}</h5>
+            投稿者：{{ post.User.name }}
+            <br>
+            <a href="{{ url_for('show_post', user_id=session.id, post_id=post.Post.id) }}" class="card-link">続きを読む</a>
+        </div>
+    </div>
+{% else %}
+    投稿がありません
+{% endfor %}
+
+</ul>
+
+{% endblock %}

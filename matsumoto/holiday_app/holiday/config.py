@@ -1,5 +1,6 @@
 import os
 
+
 SQLALCHEMY_DATABASE_URI = (
     "mysql+pymysql://{user}:{password}@{host}/{database}?charset=utf8"
     .format(**{

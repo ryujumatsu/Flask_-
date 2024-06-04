@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>{{ post.title }}</h2>
+<br>
+
+{{ post.text }}
+
+<br><br>
+投稿者 {{ user.name }}
+<br>
+投稿日時 {{ post.created_at }}
+
+<br><br>
+<div class="btn-group">
+    {% if session.id == user.id %}
+        <form action="{{ url_for('edit_post', user_id=session.id, post_id=post.id) }}" method="GET">
+            <button type="submit" class="btn btn-secondary">編集</button>
+        </form>
+
+        <form action="{{ url_for('delete_post', user_id=session.id, post_id=post.id) }}" method="POST">
+            <button type="submit" class="btn btn-danger" style="margin-left:5px">削除</button>
+        </form>
+    {% endif %}
+
+    <button type="button" onclick="location.href='/'" class="btn btn-primary" style="margin-left:5px">戻る</button>
+</div>
+
+{% endblock %}
