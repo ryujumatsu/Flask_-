@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+    ::placeholder {
+                    color: #c7c7c7;
+    }
+
+    @keyframes sway {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+    }
+
+    @keyframes flash {
+    0%, 100% {
+        /* 明るく光るよう影を重ねる */
+        text-shadow: 0 0 10px #2d0a62, 0 0 20px #2d0a62, 0 0 30px #3c2270, 0 0 40px #3c2270, 0 0 70px #3c2270, 0 0 80px #3c2270, 0 0 100px #3c2270, 0 0 150px #3c2270;
+    }
+    50% {
+    /* 淡く光るよう影を重ねる */
+        text-shadow: 0 0 10px #2d0a62, 0 0 20px #2d0a62, 0 0 30px #2d0a62, 0 0 40px #2d0a62;
+    }
+    }
+
+    .main_h2 {
+    animation: flash 1s infinite;
+    }
+
+    .main_div{
+        animation: sway 2s infinite ease-in-out;
+    }
+                    
+</style>
+
+<!-- text -->
+<div class="main_div">
+    <h2 class="main_h2 text-indigo-400" style="font-family:'DotGothic16', sans-serif; font-weight: 400; font-style: normal; text-align: center; font-size: 40px; margin: 200px 0px 50px 0px; line-height: 1.5;"> しゅくじつ マスタ かんり の <br>フォーム だ !!</h2>
+</div>    
+    <p class="main_p text-indigo-900" style="font-family:'DotGothic16', sans-serif; font-weight: 400; font-style: normal; text-align: center; font-size: 15px; line-height: 1.5; margin-bottom: 200px;">この した の フォーム に しゅくじつ を にゅうりょく して くれ !</p>
+
+<!-- Form -->
+    <form style="width: 73%; margin: 0 auto; transition-delay: 5s;" action=? method="post">
+        <div style="margin: 30px 0px auto; display: flex; flex-wrap: wrap; align-items: center;">
+            <label class="text-indigo-800" for="InputTitle" style="margin-left: 15px; font-family: 'Jaro',sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal;">Holiday Date</label>
+            <input type="date" class="shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" style=" display: block; justify-content: center; margin:0 auto; border-radius: 50px;" name=holidate id="InputTitle">
+        </div>
+        <div style="margin: 15px auto; display: flex; flex-wrap: wrap; align-items: center;">
+            <label class="text-indigo-800" for="InputTitle" style="margin-left: 15px; font-family: 'Jaro',sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal;">Holiday Text</label>
+            <input type="text" class="shadow appearance-none w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" style=" display: block; justify-content: center; margin:0 auto; border-radius: 50px;" placeholder="Enter the name of the holiday" name=holitext id="InputTitle">
+        </div>
+        <!-- button -->
+        <div style="margin-top: 30px; display: flex; justify-content: start;">
+            <button type="submit" formaction="/create" class="bg-indigo-950 hover:bg-indigo-700 text-whight font-semibold py-2 px-4 border border-indigo-950 shadowhover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500" style="margin-top: 20px; font-family: 'Jaro',sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; border-radius: 50px;">New Registration / Renewal</button>
+            <button type="submit" formaction="/delete" class="bg-rose-950 hover:bg-rose-700 text-whight font-semibold py-2 px-4 border border-indigo-950 shadowhover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500" style="margin-top: 20px; margin-left: 10px; font-family: 'Jaro',sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; border-radius: 50px;">deletion</button>
+        </div>
+        <!-- 一覧表示 -->
+        <button type="submit" class="bg-zinc-700 hover:bg-zinc-400 text-whight font-semibold py-2 px-4 border border-indigo-950 shadowhover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500" placeholder="Enter the name of the holiday" style="margin-top: 15px; font-family: 'Jaro',sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; border-radius: 50px; margin-bottom: 100px;">list view</button>
+    </form>
+
+{% endblock %}

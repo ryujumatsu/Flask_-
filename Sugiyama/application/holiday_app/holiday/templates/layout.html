@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.scss">
+    <script src="https://code.jequery.com/jequery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <!-- font link -->
+    <!-- font 1 Ja-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Darumadrop+One&family=DotGothic16&display=swap" rel="stylesheet">
+    <!-- font 2 En-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+    <title>祝日マスタ管理</title>
+</head>
+<body style="background-color: black;">
+
+
+<!-- navbars -->
+<div class="container" style="position: relative; z-index: 10000; width: 100%;">
+    <nav class="bg-indigo-950" style=" position: fixed; top: 0px; left: 0px; height: 80px; width: 100%; margin: 0 auto; border-radius: 0 0 50px 50px;">
+        <a class="navbar-brand text-indigo-300 ml-3 " style=" padding-left: 30px; height: 80px; font-family: 'Jaro',sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; font-size: 170%; display: flex; align-items: center;" href="{{ url_for('start') }}">Holiday Master Calculation</a>
+    </nav>
+</div>
+
+<!-- form -->
+<div class="form_calc">
+    {% block body %}{% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>給与計算アプリ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jequery.com/jequery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+            <a class="navbar-brand text-white ml-3" href="{{ url_for('show_entries') }}">給与計算アプリ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navnarNav" aria-content="navbar" aria-expanded="false" aria-label="Togglenavigation">
+                    <span class="navhar-toggler-icon"></span>
+                </button>
+        </nav>
+
+    <div class="blog-body">
+        {% block body %}{% endblock %}
+    </div>
+
+    </div>
+
+</body>
+</html>
