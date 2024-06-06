@@ -1,6 +1,7 @@
 from flask import request,redirect,url_for,render_template,flash,session
 #__init__.pyで作成したappをインポート
 from flask_blog import app
+from flask_blog.models.comments import Comment
 from flask_blog.models.entries import Entry
 from flask_blog import db
 #URLアクセスがあったときの処理
@@ -35,7 +36,8 @@ def show_entry(id):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     entry = Entry.query.get(id)
-    return render_template('entries/show.html', entry=entry)
+    entrycomments = db.session.query(Comment).filter(Comment.entryid == id).all()
+    return render_template('entries/show.html', entry=entry, entrycomments=entrycomments)
 
 @app.route('/entries/<int:id>/edit',methods=['GET'])
 def edit_entry(id):

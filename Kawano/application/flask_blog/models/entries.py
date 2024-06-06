@@ -1,6 +1,7 @@
 from flask_blog import db
 from datetime import datetime
 
+
 class Entry(db.Model):
     __tablename__ = 'entries'
     id = db.Column(db.Integer, primary_key=True)
@@ -16,3 +17,4 @@ class Entry(db.Model):
 
     def __repr__(self):
         return'<Entry id:{} title:{} text:{}>'.format(self.id,self.title,self.text)
+    

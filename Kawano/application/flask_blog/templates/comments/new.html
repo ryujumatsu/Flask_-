@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- 投稿の表示 -->
+<br>
+<div class="card">
+    <div class="card-body" style="padding-left: 10px;">
+        <h2>{{ entry.title }}</h2>
+        <br>
+        {{ entry.text }}
+        <br><br>
+        投稿日時:{{ entry.created_at}}
+        <br><br>
+    </div>
+</div>
+<br>
+<!-- 新しいコメントの追加 -->
+<form action="{{ url_for('add_comment', id=id) }}" method="post" class="add-comment">
+    <div class="form-group">
+        <label for="InputCText">本文</label>
+        <textarea type="text" class="form-control" id="InputCText" name="ctext" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn">作成</button>
+</form>
+<form action="{{ url_for('show_entry', id=entry.id) }}" method="GET">
+    <button type="button" class="btn" style="background-color: #072b61; color: white;">戻る</button>
+</form>
+{% endblock %}
